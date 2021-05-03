@@ -5,9 +5,8 @@
 using namespace std;
 
 //Identify user input and reach the corresponding function
-void go_to_function（）{
-    
-}
+void go_to_function(string user_inpt){
+
     //to do
 }
 
@@ -17,15 +16,51 @@ void leaning_mode(){
     string line;
     while(getline(myfile,line))
     cout<<line<<endl;
+    
     //to do
+
+}
+void Primary(){
+
+}
+
+void Intermediate(){
+
+}
+
+void Advanced(){
 
 }
 
 //This is the mode to do some recursion related questions.
 void testing_mode(){
-    //to do
+    cout<<"For test mode, we can choose: "<<endl;
+    cout<<"1: Primary: "<< endl;
+    cout<<"2: Intermediate: "<<endl;
+    cout<<"3: Advanced: "<<endl;
+    int user_choose;
 
+    if(user_choose==1){
+        Primary();
+    }
+    else if (user_choose==0){
+        Intermediate();
+    }
+    else{
+        cout<<"Wrong choose! Please enter again!"<<endl;
+        cout<<endl;
+        Advanced();
+    }
 }
+
+
+
+
+
+
+    
+
+
 
 //Print the content in main_directory and ask the user to choose the function.
 void main_directory(){
@@ -39,7 +74,7 @@ void main_directory(){
     if(user_input==1){
         leaning_mode();
     }
-    else if (user_input==0){
+    else if (user_input==2){
         testing_mode();
     }
     else{
