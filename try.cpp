@@ -20,15 +20,27 @@ void leaning_mode(){
     //to do
 
 }
+
+void createtxt(){
+    int input;
+    ofstream OutFile("Answer.txt");
+    cout<<"Your answer is : "<<endl;
+    cin>>input;
+    OutFile<<input;
+}
+
 void Primary(){
+    createtxt();
 
 }
 
 void Intermediate(){
+    createtxt();
 
 }
 
 void Advanced(){
+    createtxt();
 
 }
 
