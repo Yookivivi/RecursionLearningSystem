@@ -1,14 +1,22 @@
-#include <iostream>
+#include<fstream>
+#include<iostream>
+#include<string>
 
 using namespace std;
 
 //Identify user input and reach the corresponding function
-void go_to_function(string user_inpt){
+void go_to_function（）{
+    
+}
     //to do
 }
 
 //This is the mode to showing some basic concepts of recursion.
 void leaning_mode(){
+    fstream myfile("ecursiveintroductrion.txt",ios::in|ios::out);
+    string line;
+    while(getline(myfile,line))
+    cout<<line<<endl;
     //to do
 
 }
