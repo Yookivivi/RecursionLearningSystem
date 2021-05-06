@@ -1,0 +1,66 @@
+=> What is Recursion?
+   The process in which a function calls itself directly or indirectly is called recursion.
+   And the corresponding function is called as recursive function.
+
+
+=> What is base condition in recursion? 
+   In the recursive program, the solution to the base case is provided and the solution of the bigger problem is expressed in terms of smaller problems. 
+   +-----------------------------------+
+   |  int fact(int n){                 |               
+   |     if (n < = 1) // base case     |
+   |	    return 1;                  |
+   |     else                          |
+   |        return n*fact(n-1);        |
+   +-----------------------------------+
+   In the above example, base case for n < = 1 is defined and larger value of number can be solved by converting to smaller one till base case is reached.
+
+
+=> How a particular problem is solved using recursion? 
+   The idea is to represent a problem in terms of one or more smaller problems, and add one or more base conditions that stop the recursion. 
+   For example, we compute factorial n if we know factorial of (n-1). 
+   The base case for factorial would be n = 0. We return 1 when n = 0. 
+   +----------------------------------------+
+   |  int factorial(int n){                 |               
+   |     if (n==1 && n==0) return 1;        |
+   |	 return n * factorial(n - 1);       |
+   +----------------------------------------+
+   
+
+=> Concept differentiation: recursion and iteration
+   < Repetition >
+     – Iteration: explicit loop
+     – Recursion: repeated function calls
+   < Termination >
+     – Iteration: loop condition fails
+     – Recursion: base case reached 
+   -› Both can have infinite loops (or calls)
+   -› Recursion is elegant, but require more computer resources, why? It stores values in all recursive calls until finished (memory allocation takes memory and time).
+   -› Balance between performance (iteration) and good software engineering (recursion)
+   -› Recursion may be a bit abstract for programming novice
+
+
+=> Why Stack Overflow error occurs in recursion? 
+   If the base case is not reached or not defined, then the stack overflow problem may arise. 
+   Let us take an example to understand this.
+   +-------------------------------------------------------+
+   |  int fact(int n){                                     |
+   |     // wrong base case (it may cause stack overflow)  |
+   |     if (n == 100)                                     |
+   |         return 1;                                     |
+   |                                                       |
+   |     else                                              |
+   |         return n*fact(n-1);                           |
+   |  }                                                    |
+   +-------------------------------------------------------+
+   If fact(10) is called, it will call fact(9), fact(8), fact(7) and so on but the number will never reach 100. 
+   So, the base case is not reached. If the memory is exhausted by these functions on the stack, it will cause a stack overflow error. 
+
+
+=> What is Tail Recursion?
+   A recursive function is tail recursive when recursive call is the last thing executed by the function
+   
+   The differences from linear recursion(normal recursion): 
+   - Tail recursion is the passing of changing arguments to the variable of the recursive function.
+   
+   Benefit：There is no need for tail recursion to save the portion of the statement that is not completed after the function call.
+            So the tail recursion use less memory and time to complete the function.(Tail recursion does not take up space on the call stack.)
