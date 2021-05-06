@@ -13,7 +13,7 @@ void go_to_function(string user_inpt){
 
 //This is the mode to showing some basic concepts of recursion.
 void leaning_mode(){
-    fstream myfile("ecursiveintroductrion.txt",ios::in|ios::out);
+    fstream myfile("recursion_introductrion.txt",ios::in|ios::out);
     string line;
     while(getline(myfile,line))
     cout<<line<<endl;
