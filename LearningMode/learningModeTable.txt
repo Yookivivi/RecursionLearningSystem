@@ -1,0 +1,21 @@
+
+=================================================================================
+    @      @@@@@      @      @@@@@   @@    @  @@@@@@@  @@    @    @@@@@@
+    @      @         @ @     @   @   @ @   @     @     @ @   @   @
+    @      @@@@@    @   @    @@@@    @  @  @     @     @  @  @  @    @@@@
+    @      @       @@@@@@@   @   @   @   @ @     @     @   @ @   @      @
+    @@@@@  @@@@@  @       @  @    @  @    @@  @@@@@@@  @    @@    @@@@@@
+ ================================================================================
+Welcome to Learning Mode!
+In this mode, you will learn the concept about recursion from the some readings.
++-----------------------------------------------------------+
+| Learning mode includes the following parts:               |
+| 1. What is recursion?                                     |
+| 2. What is base condition in recursion?                   |
+| 3. How a particular problem is solved using recursion?    |
+| 4. Concept differentiation: recursion and iteration       |
+| 5. Why Stack Overflow error occurs in recursion?          |
+| 6. What is Tail Recursion?                                |
+| 7. Back to the main directory.                            |
++-----------------------------------------------------------+
+

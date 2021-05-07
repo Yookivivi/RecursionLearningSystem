@@ -1,0 +1,19 @@
+=================================================================================
+
+  ###########################
+  # What is Tail Recursion? #
+  ###########################
+  
+  A recursive function is tail recursive when recursive call is the last thing 
+  executed by the function
+   
+  The differences from linear recursion(normal recursion): 
+  - Tail recursion is the passing of changing arguments to the variable of the 
+    recursive function.
+   
+  Benefit: There is no need for tail recursion to save the portion of the statement 
+           that is not completed after the function call.
+           So the tail recursion use less memory and time to complete the function.
+		   (Tail recursion does not take up space on the call stack.)
+
+=================================================================================
