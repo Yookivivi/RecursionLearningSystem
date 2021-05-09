@@ -1,5 +1,5 @@
-八皇后问题：在8×8格的国际象棋上摆放8个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。
-填空
+Eight Queens Question: Place 8 queens on an 8×8 chess board so that they cannot attack each other, that is, no two queens can be in the same row, column or slash. Ask how many ways there are?
+fill in blank:
 #include<iostream>
 using namespace std;
 int place[1000],num;
