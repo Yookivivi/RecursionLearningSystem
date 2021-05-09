@@ -1,0 +1,21 @@
+=================================================================================
+
+  ########################################
+  # What is base condition in recursion? #
+  ########################################
+  
+  In the recursive program, the solution to the base case is provided and the 
+  solution of the bigger problem is expressed in terms of smaller problems. 
+  
+   +-----------------------------------+
+   |  int fact(int n){                 |               
+   |     if (n < = 1) // base case     |
+   |	      return 1;                  |
+   |     else                          |
+   |        return n*fact(n-1);        |
+   +-----------------------------------+
+   
+  In the above example, base case for n < = 1 is defined and larger value of number 
+  can be solved by converting to smaller one till base case is reached.
+
+=================================================================================

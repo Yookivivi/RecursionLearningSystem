@@ -1,0 +1,10 @@
+=================================================================================
+
+  ######################
+  # What is recursion? #
+  ######################
+   
+   The process in which a function calls itself directly or indirectly.
+   And the corresponding function is called as recursive function.
+
+=================================================================================
