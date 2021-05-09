@@ -6,7 +6,7 @@
 
 
 +-----------------------------------------------+
-| Congretuations! You get the correct answer.   |
+| Congratulations! You get the correct answer.  |
 |                                               |
 | You may:                                      |
 | 1. Go to the next question                    |
