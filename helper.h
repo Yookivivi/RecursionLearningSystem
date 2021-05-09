@@ -5,53 +5,61 @@
 
 using namespace std;
 
+void main_directory();
+
+
+/*
+    Belows are common functions used in both Testing Mode and Learning mode
+*/
+
 void print_txt_content(string fileName){
     fstream myfile(fileName,ios::in|ios::out);
     string line;
-    while (getline (myfile, line)) { 
-	    cout << line << endl;
-	}
+    while(getline(myfile, line)){
+        cout << line << endl;
+    }
 }
 
 string get_txt_content(string fileName){
     fstream myfile(fileName,ios::in|ios::out);
     string line;
-    while (getline (myfile, line)) { 
-	    cout << line << endl;
-	}
+    getline (myfile, line);
     return line;
 }
 
-void leaning_mode_table();
-void main_directory();
 
+
+/*
+    Belows are functions used in Learning mode
+*/
+
+void leaning_mode_table();
+
+//This is the function to show the corresponding concepts according to the user's choice.
 void open_learning_file(int choice){
-    //fstream myfile;
-    //ifstream in;
-    string line;
     switch(choice){
         case 1:{
-            print_txt_content("learningMode\\learning1.txt");
+            print_txt_content("LearningMode\\learning1.txt");
             break;
         }
         case 2:{
-            print_txt_content("learningMode\\learning2.txt");
+            print_txt_content("LearningMode\\learning2.txt");
             break;
         }
         case 3:{
-            print_txt_content("learningMode\\learning3.txt");
+            print_txt_content("LearningMode\\learning3.txt");
             break;
         }
         case 4:{
-            print_txt_content("learningMode\\learning4.txt");
+            print_txt_content("LearningMode\\learning4.txt");
             break;
         }
         case 5:{
-            print_txt_content("learningMode\\learning5.txt");
+            print_txt_content("LearningMode\\learning5.txt");
             break;
         }
         case 6:{
-            print_txt_content("learningMode\\learning6.txt");
+            print_txt_content("LearningMode\\learning6.txt");
             break;
         }
         case 7:{
@@ -60,6 +68,7 @@ void open_learning_file(int choice){
         }
     }
 
+    //The condition that it is the last concept, the user could only go back to the last slide.
     if(choice==6){
         string anything;
         cout<<"This is the last part. Then we will go back to the learning mode table"<<endl;
@@ -68,165 +77,245 @@ void open_learning_file(int choice){
         leaning_mode_table();
     }
 
+    //Ask the user to choose the next step, go to next question or go back to the last slide.
     int next_choice;
-    print_txt_content("learningMode\\next_choice.txt");
+    print_txt_content("LearningMode\\next_choice.txt");
     cout<<"Your choice is: ";
     cin>>next_choice;
+
+    //Check if the input is valid and ask the retype if it is invalid
     while(next_choice!=1 && next_choice !=2){
         cout<<"Invalid choice! Please select it again: ";
         cin>>next_choice;
     }
-
-    if(next_choice==1){
-        leaning_mode_table();
-    }
-
-    else if(next_choice==2){
-        open_learning_file(choice+1);
-    }
     
+    if(next_choice==1){ leaning_mode_table(); }
+    else{ open_learning_file(choice+1); }
 }
 
-//This is the mode to showing some basic concepts of recursion.
+//This is the function to showing the main table of learning mode
 void leaning_mode_table(){
-    print_txt_content("learningMode\\learningModeTable.txt");
+    print_txt_content("LearningMode\\learningModeTable.txt");
+
     int choice;
-    cout<<"Please choose the part you wanna go by inputting the corresponding number:";
+    cout<<"Please choose the part you wanna go by inputting the corresponding number: ";
     cin>>choice;
+
+    //Check if the input is valid.
     while(choice<1 || choice>7){
         cout<<"Wrong input!"<<endl;
-        cout<<"Please input the valid number agian:";
+        cout<<"Please input the valid number agian: ";
         cin>>choice;
     }
     open_learning_file(choice);
 }
 
-//This is the mode to do some recursion related questions.
-void testing_mode_table(){
-    char level;
-    cout<<"Please Select a level(p(primary1) or p2(primary2) or m(mediate) or s(senior)):";
-    cin>>level;
-    int ans1,ans2;
-    int real_ans1=0,real_ans2=0,k=0,h=0;
-    int a,b;
-    int j=0;
 
-    while(j==0){
-        
-    if(level=='p'){
-        print_txt_content("TestingMode\\primary1.txt");
 
-        /*fstream file1("primary1.txt",ios::in|ios::out);
-        string line1;
-        while(getline(file1,line1))
-        cout<<line1<<endl;*/
-        cout<<"read and think about this question first,"<<endl;
-        cout<<"Then please enter your answer here:";
-        cin>>ans1;
-        fstream infile1("TestingMode\\primary1_answer.txt",ios::in|ios::out);
-        string Line1;
-        while(getline(infile1,Line1))
-        real_ans1 =atoi(Line1.c_str());
-        while(k==0){
-        if(real_ans1 == ans1){
-            cout<<"Your answer is right!"<<endl;
-            cout<<"Now you can do other exercise!"<<endl;
-            k=1;
+/*
+    Belows are functions used in Testing mode
+*/
+
+void testing_mode_table();
+void open_testing_file(int, int);
+
+//This is the function to get the file name of the answer file according to the question file.
+string get_answer_file_name(string fileName){
+    size_t pos = fileName.find(".");
+    string answerFile = fileName.substr(0, pos);
+    answerFile+="_ans.txt";
+    return answerFile;
+}
+
+//This is the function to show the question and check user's answer
+void do_the_test(string fileName, int choice_dir, int choice_file){
+    string user_answer, reference_answer;
+    print_txt_content(fileName);
+    cout<<"\nPlease input your answer here: ";
+    cin>>user_answer;
+    reference_answer = get_txt_content(get_answer_file_name(fileName));
+    int next_choice;
+
+    //Correct
+    if(user_answer==reference_answer){
+
+        if(choice_file==3){
+            char anything;
+            cout<<"#################\n#  CORRECT !!!  #\n#################\n\n";
+            cout<<"We do not have more questions in this level\n";
+            cout<<"Please enter anything to go back to the level selection slide: ";
+            cin>>anything;
+            testing_mode_table();
+        }
+
+        print_txt_content("TestingMode\\correct_table.txt");
+        cout<<"Please enter your selection: ";
+        cin>>next_choice;
+        while(next_choice!=1 && next_choice!=2){
+            cout<<endl<<"Invalid Input!"<<endl;
+            cout<<"Please enter your selestion again!";
+            cin>>next_choice;
+        }
+        if(next_choice==1){
+            open_testing_file(choice_dir, choice_file+1);
         }
         else{
-            cout<<"The answer is wrong, Please try again."<<endl;
-            cout<<"Then please enter your answer here:";
-            cin>>ans1;
-            cout<<real_ans1;
-        }
-        }
-        infile1.close();
-        cout<<"If you want to leave the exercise, please enter 1.if don't, enter 0 :";
-        cin>>j;
-        if(j==0){
-            cout<<"Please Select a level(p(primary1) or p2(primary2) or m(mediate) or s(senior)):";
-            cin>>level;
+            testing_mode_table();
         }
     }
-    if(level=='P'){
 
-        print_txt_content("TestingMode\\promary2.txt");
-        /*fstream file2("primary2.txt",ios::in|ios::out);
-        string line2;
-        while(getline(file2,line2))*/
-        cout<<line2<<endl;
-        cout<<"read and think about this question first,"<<endl;
-        cout<<"Then please enter your answer here:";
-        cin>>ans2;
-        fstream infile2("TestingMode\\primary2_answer.txt",ios::in|ios::out);
-        string Line2;
-        while(getline(infile2,Line2))
-        real_ans1 =atoi(Line2.c_str());
-        while(h==0){
-        if(real_ans2 == ans2){
-            cout<<"Your answer is right!"<<endl;
-            cout<<"Now you can do other exercise!"<<endl;
-            h=1;
+    //Wrong
+    else{
+        print_txt_content("TestingMode\\wrong_table.txt");
+        cout<<"Please enter your selection: ";
+        cin>>next_choice;
+        while(next_choice!=1 && next_choice!=2){
+            cout<<endl<<"Invalid Input!"<<endl;
+            cout<<"Please enter your selestion again!";
+            cin>>next_choice;
+        }
+        if(next_choice==1){
+            do_the_test(fileName, choice_dir, choice_file);
         }
         else{
-            cout<<"The answer is wrong, Please try again."<<endl;
-            cout<<"Then please enter your answer here:";
-            cin>>ans1;
-    
+            cout<<endl<<"The answer of this question is: "<<reference_answer<<endl;
+            cout<<endl;
+            if(choice_file==3){
+                char anything;
+                cout<<"We do not have more questions in this level\n";
+                cout<<"Please enter anything to go back to the level selection slide: ";
+                cin>>anything;
+                testing_mode_table();
+            }
+            print_txt_content("TestingMode\\wrong_next_choice.txt");
+            cout<<"Please enter your selection: ";
+            cin>>next_choice;
+            while(next_choice!=1 && next_choice!=2){
+                cout<<endl<<"Invalid Input!"<<endl;
+                cout<<"Please enter your selestion again!";
+                cin>>next_choice;
+            }
+            
+            if(next_choice==1){
+                open_testing_file(choice_dir, choice_file+1);
+            }
+            else{
+                testing_mode_table();
+            }
         }
-        }
-        infile2.close();
-        cout<<"If you want to leave the exercise, please enter 1.if don't, enter 0 :";
-        cin>>j;
-        if(j==0){
-            cout<<"Please Select a level(p(primary1) or p2(primary2) or m(mediate) or s(senior)):";
-        }
-    }
-    if(level=='m'){
-        print_txt_content("TestingMode\\intermediate.txt");
-        
-        cout<<"read and think about this question first,"<<endl;
-        cout<<"If you have written the answer,please enter '1' to get the answer:"<<endl;
-        cin>>a;
-        if(a==1){
-            fstream infile3("TestingMode\\intermediate_answer.txt",ios::in|ios::out);
-            string Line3;
-            while(getline(infile3,Line3))
-            cout<<"The answer is:"<<endl;
-            cout<<Line3<<endl;
-            infile3.close();
-        }
-        cout<<"If you want to leave the exercise, please enter 1.if don't, enter 0 :";
-        cin>>j;
-        if(j==0){
-            cout<<"Please Select a level(p(primary1) or p2(primary2) or m(mediate) or s(senior)):";
-        }
-    }
-    if(level=='s'){
-        print_txt_content("TestingMode\\senior.txt");
-        
-        cout<<"read and think about this question first,"<<endl;
-        cout<<"If you have written the answer,please enter '1' to get the answer:"<<endl;
-        cin>>b;
-        if(b==1){
-            fstream infile4("TestingMode\\intermediate_answer.txt",ios::in|ios::out);
-            string Line4;
-            while(getline(infile4,Line4))
-            cout<<"The answer is:"<<endl;
-            cout<<Line4<<endl;
-            infile4.close();
-        }
-        cout<<"You have finished all of the exercise,please enter 1 to leave:";
-        cin>>j;
-        if(j==0){
-            cout<<"Please Select a level(p(primary1) or p2(primary2) or m(mediate) or s(senior)):";
-        }
-    }
-
- 
-    //to do
     }
 }
+
+//This is the function to go to the corresponding question file according to the user's input.
+void open_testing_file(int choice_dir, int choice_file){
+    switch (choice_dir){
+
+    //Beginner Level   
+    case 1:
+        switch (choice_file){
+        case 1:
+            do_the_test("TestingMode\\beginner\\1.txt", choice_dir, choice_file);
+            break;
+        case 2:
+            do_the_test("TestingMode\\beginner\\2.txt", choice_dir, choice_file);
+            break;
+        case 3:
+            do_the_test("TestingMode\\beginner\\3.txt", choice_dir, choice_file);
+            break;
+        }
+        break;
+
+    //Normal Level   
+    case 2:
+        switch (choice_file){
+        case 1:
+            do_the_test("TestingMode\\normal\\1.txt", choice_dir, choice_file);
+            break;
+        case 2:
+            do_the_test("TestingMode\\normal\\2.txt", choice_dir, choice_file);
+            break;
+        case 3:
+            do_the_test("TestingMode\\normal\\3.txt", choice_dir, choice_file);
+            break;
+        }
+        break;
+
+    //Advanced Level
+    case 3:
+        switch (choice_file){
+        case 1:
+            do_the_test("TestingMode\\advanced\\1.txt", choice_dir, choice_file);
+            break;
+        case 2:
+            do_the_test("TestingMode\\advanced\\2.txt", choice_dir, choice_file);
+            break;
+        case 3:
+            do_the_test("TestingMode\\advanced\\3.txt", choice_dir, choice_file);
+            break;
+        }
+        break;
+    }
+}
+
+void open_testing_directory(int choice){
+    string line;
+    int choice_file;
+    switch(choice){
+        case 1:{
+            print_txt_content("TestingMode\\beginner\\table.txt");
+            break;
+        }
+        case 2:{
+            print_txt_content("TestingMode\\normal\\table.txt");
+            break;
+        }
+        case 3:{
+            print_txt_content("TestingMode\\advanced\\table.txt");
+            break;
+        }
+        case 4:{
+            main_directory();
+            break;
+        }
+    }
+    cout<<"Please input your selection: ";
+    cin>>choice_file;
+    while(choice_file>3 || choice_file<1){
+        cout<<"Wrong input!"<<endl;
+        cout<<"Please select again: ";
+        cin>>choice_file;
+    }
+    if(choice_file==4){
+        testing_mode_table();
+    }
+    else{
+        open_testing_file(choice, choice_file);
+    }
+}
+
+
+//This is the mode to do some recursion related questions.
+void testing_mode_table(){
+    print_txt_content("TestingMode\\testingModeTable.txt");
+    int choice;
+    cout<<"Please choose the part you wanna go by inputting the corresponding number:";
+    cin>>choice;
+    while(choice<1 || choice>4){
+        cout<<"Wrong input!"<<endl;
+        cout<<"Please input the valid number agian: ";
+        cin>>choice;
+    }
+    open_testing_directory(choice);
+}
+
+
+
+
+/*
+    Belows are functions to show welcome and ask the user to choose the using mode.
+*/
+
+//This function is used to show the welcome table for the users.
 void welcome_message(){
     print_txt_content("welcome.txt");
 }
@@ -246,6 +335,10 @@ void main_directory(){
         testing_mode_table();
     }
     else if (user_input==3){
+        cout<<endl<<"Thank you for using this system."<<endl;
+        cout<<"Looking forward to see you next time."<<endl;
+        cout<<"Bye!"<<endl;
+        cout<<endl;
         exit(0);
     }
     else{
