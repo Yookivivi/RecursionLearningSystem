@@ -1,2 +1,2 @@
-全排列问题：出入一个整数，对这个数之前的所有整数进行全排列，例如：输入3，输出：123,132,231,213,312,321
-填空：
+Full permutation problem: Enter and out of an integer, all integers before this number are permuted，For example：Input3，Output：123,132,231,213,312,321
+Fill in the blank：
