@@ -21,7 +21,7 @@ int main(){
     cout << fun(n, 1, 3) << endl;
     return 0;
 }
-输入：5
-输出：_________
+Input：5
+Output：_________
 
 
