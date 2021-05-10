@@ -1,34 +1,10 @@
 
 ===============================================================================
 
- 1. Please read the following codes and get the output.
+ 1. Please select the correct one of the following statements about recursion:
+    A. Recursion is essentially the same as iteration.
+    B. Recursion is the process in which a function calls itself.
+    C. There is no stack Overflow error occurs in recursion
+    D. Tail recursion use more memory and time to complete the function.
+	
  
- +---------------------------------------+
- | #include <iostream>                   |
- | using namespace std;                  |
- |                                       |
- | int lps(string seq, int i, int j){    |
- |    int len1, len2;                    |
- |    if (i==j)                          |
- |        return 1;                      |
- |    if (i>j)                           |
- |        return 0;                      |
- |    if (seq[i]==seq[j])                |
- |        return lps(seq, i+1, j-1)+2;   |
- |    len1 = lps(seq, i, j-1);           |
- |    len2 = lps(seq, i+1, j);           |
- |    if (len1>len2)                     |
- |        return len1;                   |
- |    return len2;                       |
- | }                                     |
- |                                       |
- | int main(){                           |
- |    string seq = "acmerandacm";        |
- |    int n=seq.size();                  |
- |    cout << lps(seq,0,n-1) << endl;    |
- |    return 0;                          |
- | }                                     |
- +---------------------------------------+
-
- Output: ____________
-
