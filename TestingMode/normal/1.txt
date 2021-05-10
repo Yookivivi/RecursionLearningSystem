@@ -1,9 +1,13 @@
 
 ==========================================================================
-1. Full permutation problem: 
 
-Enter and output of an integer, all integers before this number are permuted.
-For example：
-Input 3, output：123,132,231,213,312,321
+ +--------------------------------------------------------------+
+|1. Full permutation problem: 						|
+|								|
+| Enter and output of an integer, all integers before this number are permuted.	|
+| For example：							|
+| Input 3, output：123,132,231,213,312,321				|
+ +--------------------------------------------------------------+
+
 Fill in the blank：
 

@@ -1,0 +1,15 @@
+
+===============================================================================
+
+ +--------------------------------------------------------------+
+| A recursive algorithm must include ().			|
+|						|
+| A．recursive component				|
+|						|
+| B．Termination condition and recursive part		|
+|						|
+| C．Cycle part					|
+|						|
+| D．Termination condition and cycle part		|
+ +--------------------------------------------------------------+
+Please enter your answer:

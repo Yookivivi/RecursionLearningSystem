@@ -12,13 +12,13 @@ int judge(int k,int x)
 }
 void tryplace(int k)
 {
-    if(  ) //空格内答案：k>n或k>=n+1 
+    if(  ) // k>n or k>=n+1 
     return;
     for(int i=1;i<=n;i++)
     if(judge(k,i)==0)
     { 
         place[k]=i;
-        try1(  );//空格内答案：k+1
+        try1(  );// k+1
     } 
 }
 int main()

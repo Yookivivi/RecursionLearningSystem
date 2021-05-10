@@ -1,4 +1,4 @@
-
+===============================================================================
 #include<iostream>
 using namespace std;
 int place[1000],num;
@@ -25,7 +25,7 @@ void tryplace(int k)
     for(int i=1;i<=8;i++) 
     {
         place[k]=i;
-        if(  ) // 空格内答案：judge(k,place[k])==0
+        if(  ) 
         tryplace(k+1);
     }
 }
@@ -34,4 +34,5 @@ int main()
     tryplace(1);
     return 0;
 } 
+===============================================================================
 
