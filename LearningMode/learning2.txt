@@ -1,4 +1,4 @@
-=================================================================================
+================================================================================
 
   ########################################
   # What is base condition in recursion? #
@@ -8,9 +8,9 @@
   solution of the bigger problem is expressed in terms of smaller problems. 
   
    +-----------------------------------+
-   |  int fact(int n){                 |               
+   |  int fact(int n){                 | 
    |     if (n < = 1) // base case     |
-   |	      return 1;                  |
+   |	      return 1;                |
    |     else                          |
    |        return n*fact(n-1);        |
    +-----------------------------------+
