@@ -1,1 +1,0 @@
-judge(k,place[k])==0
