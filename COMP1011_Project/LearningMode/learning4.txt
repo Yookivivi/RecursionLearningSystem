@@ -1,0 +1,22 @@
+=================================================================================
+
+  ####################################################
+  # Concept differentiation: recursion and iteration #
+  ####################################################
+  
+  < Repetition >
+    Iteration: explicit loop
+    Recursion: repeated function calls
+  < Termination >
+    Iteration: loop condition fails
+    Recursion: base case reached 
+  
+  ->Both can have infinite loops (or calls)
+  -> Recursion is elegant, but require more computer resources
+     Why? =>It stores values in all recursive calls until finished 
+	        (memory allocation takes memory and time).
+  -> Balance between performance (iteration) and good software engineering 
+     (recursion)
+  -> Recursion may be a bit abstract for programming novice
+
+=================================================================================

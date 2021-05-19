@@ -1,0 +1,27 @@
+=================================================================================
+
+  #################################################
+  # Why Stack Overflow error occurs in recursion? #
+  #################################################
+  
+  If the base case is not reached or not defined, then the stack overflow problem 
+  may arise. 
+  Let us take an example to understand this.
+
+   +-------------------------------------------------------+
+   |  int fact(int n){                                     |
+   |     // wrong base case (it may cause stack overflow)  |
+   |     if (n == 100)                                     |
+   |         return 1;                                     |
+   |                                                       |
+   |     else                                              |
+   |         return n*fact(n-1);                           |
+   |  }                                                    |
+   +-------------------------------------------------------+
+   
+  If fact(10) is called, it will call fact(9), fact(8), fact(7) and so on but the 
+  number will never reach 100. 
+  So, the base case is not reached. If the memory is exhausted by these functions on 
+  the stack, it will cause a stack overflow error. 
+
+=================================================================================

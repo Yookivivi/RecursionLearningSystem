@@ -1,0 +1,49 @@
+
+===============================================================================
+
+  3. Climbing stairs:
+
+    Sam climbing stairs, he can walk 1 or 2 steps at a time, enter a series of 
+    stairs, and get different walking numbers.
+    For example, there are 3 stairs. He can walk one level at a time, or take the first grade,
+    and take the two grade second times. It can also take the first two steps, second times a step, 
+    and totally3 ways.
+
+    Input:
+    Input contains a number of lines, each line contains a positive integer n, 
+    representing the number of stairs, 1 < = n < = 30
+
+    Output:
+    Each line of input corresponds to one line of output
+	
+    For example:
+    input:
+    5
+    8
+    10
+    output:
+    8
+    34
+    89
+	
+   +-------------------------------------------+				
+   | code:                                     |
+   | #include<cstdio>                          |
+   | using namespace std;                      |
+   | int floor(int n)                          |
+   | {                                         |
+   |  if(n==1) return 1;                       |
+   |  if(n==2) return 2;                       |
+   |  return ____________;                     |
+   | }                                         |
+   | int main()                                |
+   | {                                         |
+   |  int step;                                |
+   |  while(scanf("%d",&step)!=-1)             |
+   |      printf("%d\n",floor(step));          |
+   |  return 0;                                |
+   | }                                         |
+   +-------------------------------------------+
+
+   Fill the blank____________
+

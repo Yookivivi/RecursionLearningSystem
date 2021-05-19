@@ -1,0 +1,51 @@
+
+===============================================================================
+
+ 2. A path is defined as a sequence starting from any node in the tree 
+    and connecting along parent-child nodes to any node.
+    The same node occurs at most once in a path sequence.
+	
+    This path contains at least one node and does not necessarily go through the root node.
+	
+    The path sum is the sum of the values of each node in the path.
+	
+	Now we give you the root of a tree (root), and would like to get its maximum path sum.
+    We have the following code piece to implement the above requirments.
+    Please read the code below and fill in the blank.
+	
+    +--------------------------------------------------------------------------------------------+
+    | //Definition for a binary tree node.                                                       |
+    | struct TreeNode {                                                                          |
+    |   int val;                                                                                 |
+    |   TreeNode *left;                                                                          |
+    |   TreeNode *right;                                                                         |
+    |   TreeNode() : val(0), left(nullptr), right(nullptr) {}                                    |
+    |   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}                               |
+    |   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}   |
+    | };                                                                                         |
+    |                                                                                            |
+    |                                                                                            |
+    |  class Solution {                                                                          |
+    |    private:                                                                                |
+    |    int maxPathSum(TreeNode* root, int &val) {                                              |
+    |                                                                                            |
+    |      if (root == nullptr) return 0;                                                        |
+    |      int left  = max(maxPathSum(root->left,  val), 0);                                     |
+    |      int right = max(maxPathSum(root->right, val), 0);                                     |
+    |                                                                                            |
+    |      int lmr = root->val + left + right;                                                   |
+    |      val = max(val, lmr);                                                                  |
+    |                                                                                            |
+    |      return root->val + __________;//Return along a larger branch                          |
+    |    }                                                                                       |
+    |                                                                                            |
+    |    public:                                                                                 |
+    |      int maxPathSum(TreeNode* root) {                                                      |
+    |        int val = INT_MIN;                                                                  |
+    |        maxPathSum(root, val);                                                              |
+    |        return val;                                                                         |
+    |      }                                                                                     |
+    |  };                                                                                        |
+    |                                                                                            |
+    +--------------------------------------------------------------------------------------------+
+	
