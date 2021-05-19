@@ -1,9 +1,0 @@
-
-+----------------------------------------------------------------+
-| This is the main directory of Introductory to Recursion System |
-| We have the folowing mode:                                     |
-| 1. Learning Mode                                               |
-| 2. Testing Mode                                                |
-| 3. Quit                                                        |
-+----------------------------------------------------------------+
-
